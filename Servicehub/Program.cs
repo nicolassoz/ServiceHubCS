@@ -15,7 +15,8 @@ namespace Servicehub
             //Application.Run(new FrmComponente());
             //Application.Run(new FrmProduto());
             //Application.Run(new FrmServicos());
-            Application.Run(new ForClientes());
+            //Application.Run(new ForClientes());
+            Application.Run(new frmCategorias());
 
         }
     }
