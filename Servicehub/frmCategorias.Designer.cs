@@ -28,11 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmCategorias));
             dgvCategorias = new DataGridView();
             Column1 = new DataGridViewTextBoxColumn();
             Column2 = new DataGridViewTextBoxColumn();
             Column3 = new DataGridViewTextBoxColumn();
-            txtId = new Label();
+            LId = new Label();
             Nome = new Label();
             lSigla = new Label();
             txtNome = new TextBox();
@@ -44,7 +45,7 @@
             btnEditar = new Button();
             btnAdicionar = new Button();
             label1 = new Label();
-            textBox5 = new TextBox();
+            txtId = new TextBox();
             ((System.ComponentModel.ISupportInitialize)dgvCategorias).BeginInit();
             SuspendLayout();
             // 
@@ -58,8 +59,12 @@
             dgvCategorias.Name = "dgvCategorias";
             dgvCategorias.ReadOnly = true;
             dgvCategorias.RowHeadersVisible = false;
+            dgvCategorias.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvCategorias.Size = new Size(719, 217);
             dgvCategorias.TabIndex = 0;
+            dgvCategorias.CellClick += dgvCategorias_CellClick;
+            dgvCategorias.CellContentClick += dgvCategorias_CellContentClick;
+            dgvCategorias.SelectionChanged += dgvCategorias_SelectionChanged;
             // 
             // Column1
             // 
@@ -85,14 +90,14 @@
             Column3.ReadOnly = true;
             Column3.Width = 84;
             // 
-            // txtId
+            // LId
             // 
-            txtId.AutoSize = true;
-            txtId.Location = new Point(12, 66);
-            txtId.Name = "txtId";
-            txtId.Size = new Size(18, 15);
-            txtId.TabIndex = 1;
-            txtId.Text = "ID";
+            LId.AutoSize = true;
+            LId.Location = new Point(12, 66);
+            LId.Name = "LId";
+            LId.Size = new Size(18, 15);
+            LId.TabIndex = 1;
+            LId.Text = "ID";
             // 
             // Nome
             // 
@@ -168,6 +173,7 @@
             btnExcluir.Text = "E&xcluir";
             btnExcluir.TextImageRelation = TextImageRelation.ImageAboveText;
             btnExcluir.UseVisualStyleBackColor = true;
+            btnExcluir.Click += btnExcluir_Click;
             // 
             // btnPesquisar
             // 
@@ -202,6 +208,7 @@
             btnEditar.Text = "&Editar";
             btnEditar.TextImageRelation = TextImageRelation.ImageAboveText;
             btnEditar.UseVisualStyleBackColor = true;
+            btnEditar.Click += btnEditar_Click;
             // 
             // btnAdicionar
             // 
@@ -230,21 +237,21 @@
             label1.TabIndex = 14;
             label1.Text = "Cadastro de Categorias";
             // 
-            // textBox5
+            // txtId
             // 
-            textBox5.Font = new Font("Segoe UI", 10F);
-            textBox5.Location = new Point(12, 81);
-            textBox5.Name = "textBox5";
-            textBox5.ReadOnly = true;
-            textBox5.Size = new Size(71, 25);
-            textBox5.TabIndex = 15;
+            txtId.Font = new Font("Segoe UI", 10F);
+            txtId.Location = new Point(12, 81);
+            txtId.Name = "txtId";
+            txtId.ReadOnly = true;
+            txtId.Size = new Size(71, 25);
+            txtId.TabIndex = 15;
             // 
             // frmCategorias
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(757, 450);
-            Controls.Add(textBox5);
+            Controls.Add(txtId);
             Controls.Add(label1);
             Controls.Add(btnCancelar);
             Controls.Add(btnExcluir);
@@ -256,8 +263,9 @@
             Controls.Add(txtNome);
             Controls.Add(lSigla);
             Controls.Add(Nome);
-            Controls.Add(txtId);
+            Controls.Add(LId);
             Controls.Add(dgvCategorias);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "frmCategorias";
             Text = "frmCategorias";
             Load += frmCategorias_Load;
@@ -269,7 +277,7 @@
         #endregion
 
         private DataGridView dgvCategorias;
-        private Label txtId;
+        private Label LId;
         private Label Nome;
         private Label lSigla;
         private TextBox txtNome;
@@ -281,7 +289,7 @@
         private Button btnEditar;
         private Button btnAdicionar;
         private Label label1;
-        protected TextBox textBox5;
+        protected TextBox txtId;
         private DataGridViewTextBoxColumn Column1;
         private DataGridViewTextBoxColumn Column2;
         private DataGridViewTextBoxColumn Column3;

@@ -28,6 +28,10 @@ namespace ServiceHubClass
         {
             Id = 0;
         }
+        public Categoria(int id) 
+        {
+            Id = id;
+        }
         public Categoria(string? nome, string? sigla)
         {
             Nome = nome;
@@ -59,7 +63,7 @@ namespace ServiceHubClass
             Categoria cat = new();
             var cmd = Banco.Abrir();
             cmd.CommandType = CommandType.Text;
-            cmd.CommandText = $"select * from cetegoriras where id = {id}";
+            cmd.CommandText = $"select * from categoriras where id = {id}";
             var dr = cmd.ExecuteReader();
             if (dr.Read()) 
             {
@@ -78,7 +82,7 @@ namespace ServiceHubClass
             {
                 if (busca != "") 
                 {
-                    cmd.CommandText = $"select * from categorias where nome like '%{busca}%' order by nome";
+                    cmd.CommandText = $"select * from categorias where nome like '%{busca}%' or id like '%{busca}%' order by nome";
                 }
                 else 
                 {
@@ -89,7 +93,7 @@ namespace ServiceHubClass
                 var dr = cmd.ExecuteReader();
                 while (dr.Read()) 
                 {
-                    categorias.Add(new(dr.GetInt32(0),dr.GetString(1),dr.GetString(2)??""));
+                    categorias.Add(new(dr.GetInt32(0),dr.GetString(1),dr.GetString(2)));
                 }
                 dr.Close();
                 cmd.Connection.Close();
@@ -117,12 +121,12 @@ namespace ServiceHubClass
             return atualizado;
         }
 
-        public void Excluir(int id) 
+        public void Excluir() 
         {
             var cmd = Banco.Abrir();
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.CommandText = "sp_categoria_delete";
-            cmd.Parameters.AddWithValue("spid",id);
+            cmd.Parameters.AddWithValue("spid",Id);
             cmd.ExecuteNonQuery();
             cmd.Connection.Close();
 
