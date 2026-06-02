@@ -36,16 +36,16 @@
             txtId = new TextBox();
             txtNome = new TextBox();
             txtSigla = new TextBox();
-            dgvNivels = new DataGridView();
+            dgvNiveis = new DataGridView();
+            Column1 = new DataGridViewTextBoxColumn();
+            Column2 = new DataGridViewTextBoxColumn();
+            Column3 = new DataGridViewTextBoxColumn();
             btnAdicionar = new Button();
             btnPesquisar = new Button();
             btnEditar = new Button();
             btnExcluir = new Button();
             btnCancelar = new Button();
-            Column1 = new DataGridViewTextBoxColumn();
-            Column2 = new DataGridViewTextBoxColumn();
-            Column3 = new DataGridViewTextBoxColumn();
-            ((System.ComponentModel.ISupportInitialize)dgvNivels).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dgvNiveis).BeginInit();
             SuspendLayout();
             // 
             // label1
@@ -104,18 +104,42 @@
             txtSigla.Size = new Size(73, 23);
             txtSigla.TabIndex = 6;
             // 
-            // dgvNivels
+            // dgvNiveis
             // 
-            dgvNivels.AllowUserToAddRows = false;
-            dgvNivels.AllowUserToDeleteRows = false;
-            dgvNivels.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvNivels.Columns.AddRange(new DataGridViewColumn[] { Column1, Column2, Column3 });
-            dgvNivels.Location = new Point(42, 210);
-            dgvNivels.Name = "dgvNivels";
-            dgvNivels.ReadOnly = true;
-            dgvNivels.RowHeadersVisible = false;
-            dgvNivels.Size = new Size(710, 228);
-            dgvNivels.TabIndex = 7;
+            dgvNiveis.AllowUserToAddRows = false;
+            dgvNiveis.AllowUserToDeleteRows = false;
+            dgvNiveis.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvNiveis.Columns.AddRange(new DataGridViewColumn[] { Column1, Column2, Column3 });
+            dgvNiveis.Location = new Point(42, 210);
+            dgvNiveis.Name = "dgvNiveis";
+            dgvNiveis.ReadOnly = true;
+            dgvNiveis.RowHeadersVisible = false;
+            dgvNiveis.Size = new Size(710, 228);
+            dgvNiveis.TabIndex = 7;
+            // 
+            // Column1
+            // 
+            Column1.Frozen = true;
+            Column1.HeaderText = "ID";
+            Column1.Name = "Column1";
+            Column1.ReadOnly = true;
+            Column1.Width = 50;
+            // 
+            // Column2
+            // 
+            Column2.Frozen = true;
+            Column2.HeaderText = "Nome";
+            Column2.Name = "Column2";
+            Column2.ReadOnly = true;
+            Column2.Width = 580;
+            // 
+            // Column3
+            // 
+            Column3.Frozen = true;
+            Column3.HeaderText = "Sigla";
+            Column3.Name = "Column3";
+            Column3.ReadOnly = true;
+            Column3.Width = 80;
             // 
             // btnAdicionar
             // 
@@ -128,6 +152,7 @@
             btnAdicionar.Text = "&Adicionar";
             btnAdicionar.TextAlign = ContentAlignment.BottomCenter;
             btnAdicionar.UseVisualStyleBackColor = true;
+            btnAdicionar.Click += btnAdicionar_Click;
             // 
             // btnPesquisar
             // 
@@ -177,30 +202,6 @@
             btnCancelar.TextAlign = ContentAlignment.BottomCenter;
             btnCancelar.UseVisualStyleBackColor = true;
             // 
-            // Column1
-            // 
-            Column1.Frozen = true;
-            Column1.HeaderText = "ID";
-            Column1.Name = "Column1";
-            Column1.ReadOnly = true;
-            Column1.Width = 50;
-            // 
-            // Column2
-            // 
-            Column2.Frozen = true;
-            Column2.HeaderText = "Nome";
-            Column2.Name = "Column2";
-            Column2.ReadOnly = true;
-            Column2.Width = 580;
-            // 
-            // Column3
-            // 
-            Column3.Frozen = true;
-            Column3.HeaderText = "Sigla";
-            Column3.Name = "Column3";
-            Column3.ReadOnly = true;
-            Column3.Width = 80;
-            // 
             // FrmNivels
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -211,7 +212,7 @@
             Controls.Add(btnEditar);
             Controls.Add(btnPesquisar);
             Controls.Add(btnAdicionar);
-            Controls.Add(dgvNivels);
+            Controls.Add(dgvNiveis);
             Controls.Add(txtSigla);
             Controls.Add(txtNome);
             Controls.Add(txtId);
@@ -222,7 +223,8 @@
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "FrmNivels";
             Text = "FrmNivel";
-            ((System.ComponentModel.ISupportInitialize)dgvNivels).EndInit();
+            Load += FrmNivels_Load;
+            ((System.ComponentModel.ISupportInitialize)dgvNiveis).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -236,7 +238,7 @@
         private TextBox txtId;
         private TextBox txtNome;
         private TextBox txtSigla;
-        private DataGridView dgvNivels;
+        private DataGridView dgvNiveis;
         private Button btnAdicionar;
         private Button btnPesquisar;
         private Button btnEditar;
