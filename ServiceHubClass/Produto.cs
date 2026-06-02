@@ -120,7 +120,7 @@ namespace ServiceHubClass
                     Categoria.ObterPorId(dr.GetInt32(5)),
                     dr.GetDouble(6),
                     dr.GetDouble(7),
-                    (byte[])dr.GetValue(8),
+                    null,
                     dr.GetDateTime(9),
                     dr.GetBoolean(10)
                     );
@@ -148,7 +148,7 @@ namespace ServiceHubClass
                     Categoria.ObterPorId(dr.GetInt32(5)),
                     dr.GetDouble(6),
                     dr.GetDouble(7),
-                    (byte[])dr.GetValue(8),
+                    null,
                     dr.GetDateTime(9),
                     dr.GetBoolean(10)
                     )

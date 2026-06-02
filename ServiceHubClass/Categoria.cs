@@ -63,7 +63,7 @@ namespace ServiceHubClass
             Categoria cat = new();
             var cmd = Banco.Abrir();
             cmd.CommandType = CommandType.Text;
-            cmd.CommandText = $"select * from categoriras where id = {id}";
+            cmd.CommandText = $"select * from categorias where id = {id}";
             var dr = cmd.ExecuteReader();
             if (dr.Read()) 
             {

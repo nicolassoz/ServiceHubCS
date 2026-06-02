@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ServiceHubClass;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -21,37 +22,29 @@ namespace Servicehub
 
         private void button2_Click(object sender, EventArgs e)
         {
-            int numero1 = 0;
-            numero1 = int.Parse(txtCodBarras.Text);
+            Produto produto = new
+                (
+                txtCodBarras.Text,
+                txtDescricao.Text,
+                (double)nudValorUnit.Value,
+                txtUnidadeVenda.Text,
+                Categoria.ObterPorId(Convert.ToInt32(cmbCategoria.SelectedValue)),
+                (double)nudEstoqueMinimo.Value,
+                (double)nudClasseDesconto.Value
+                );
+            produto.Inserir();
+            if (produto.Id > 0)
+                MessageBox.Show($"Produto {produto.Descricao} gravado com sucesso!");
 
-            string texto = "";
-            texto = txtDescricao.Text;
+        }
 
-            //double preco = 0.00;
-            //preco = double.Parse(numericUpDown1.);
+        private void FrmProduto_Load(object sender, EventArgs e)
+        {
+            cmbCategoria.DataSource = Categoria.ObterLista();
+            cmbCategoria.DisplayMember = "Nome";
+            cmbCategoria.ValueMember = "Id";
 
-            string unVendas = "";
-            unVendas = txtUnidadeVenda.Text;
-
-            listBox1.Items.Add($"codigo de baras: {numero1}");
-            listBox1.Items.Add($"descrição: {texto}");
-            switch (comboBox1.SelectedIndex)
-            {
-                case 0: // multiplicação
-                    listBox1.Items.Add("camisa");
-                    break;
-                case 1: // divisão
-                    listBox1.Items.Add("calsa");
-                    break;
-                case 2: // adição
-                    listBox1.Items.Add("tenis");
-                    break;
-            }
-            //listBox1.Items.Add($"codigo de barras: {txtCodBarras}");
-            //listBox1.Items.Add("a");
-
-            //listBox1.Items.Add($"descrição: {txtDescricao}");
-            //listBox1.Items.Add($"codigo de barras: {txtUnidadeVenda}");
+            dgvProdutos.DataSource = Produto.ObterLista();
         }
     }
 }

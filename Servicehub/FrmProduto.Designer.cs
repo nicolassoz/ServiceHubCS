@@ -40,20 +40,22 @@
             label6 = new Label();
             button1 = new Button();
             button2 = new Button();
-            button3 = new Button();
-            button4 = new Button();
+            btnEditar = new Button();
+            btnCancelar = new Button();
             button5 = new Button();
-            numericUpDown1 = new NumericUpDown();
-            comboBox1 = new ComboBox();
+            nudValorUnit = new NumericUpDown();
+            cmbCategoria = new ComboBox();
             nudClasseDesconto = new NumericUpDown();
             label7 = new Label();
             nudEstoqueMinimo = new NumericUpDown();
             panel1 = new Panel();
             chkDescontinuado = new CheckBox();
             listBox1 = new ListBox();
-            ((System.ComponentModel.ISupportInitialize)numericUpDown1).BeginInit();
+            dgvProdutos = new DataGridView();
+            ((System.ComponentModel.ISupportInitialize)nudValorUnit).BeginInit();
             ((System.ComponentModel.ISupportInitialize)nudClasseDesconto).BeginInit();
             ((System.ComponentModel.ISupportInitialize)nudEstoqueMinimo).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dgvProdutos).BeginInit();
             SuspendLayout();
             // 
             // label1
@@ -157,59 +159,61 @@
             button2.Size = new Size(149, 59);
             button2.TabIndex = 10;
             button2.Text = "&Salvar";
+            button2.TextAlign = ContentAlignment.BottomCenter;
             button2.TextImageRelation = TextImageRelation.ImageAboveText;
             button2.UseVisualStyleBackColor = true;
             button2.Click += button2_Click;
             // 
-            // button3
+            // btnEditar
             // 
-            button3.Image = Properties.Resources.Edit_Alt;
-            button3.Location = new Point(297, 312);
-            button3.Name = "button3";
-            button3.Size = new Size(145, 59);
-            button3.TabIndex = 11;
-            button3.Text = "&Editar";
-            button3.TextImageRelation = TextImageRelation.ImageAboveText;
-            button3.UseVisualStyleBackColor = true;
+            btnEditar.Image = Properties.Resources.Edit_Alt;
+            btnEditar.Location = new Point(297, 312);
+            btnEditar.Name = "btnEditar";
+            btnEditar.Size = new Size(145, 59);
+            btnEditar.TabIndex = 11;
+            btnEditar.Text = "&Editar";
+            btnEditar.TextImageRelation = TextImageRelation.ImageAboveText;
+            btnEditar.UseVisualStyleBackColor = true;
             // 
-            // button4
+            // btnCancelar
             // 
-            button4.Image = Properties.Resources.Cancel;
-            button4.Location = new Point(477, 308);
-            button4.Name = "button4";
-            button4.Size = new Size(141, 63);
-            button4.TabIndex = 12;
-            button4.Text = "&Cancelar";
-            button4.TextImageRelation = TextImageRelation.ImageAboveText;
-            button4.UseVisualStyleBackColor = true;
+            btnCancelar.Image = Properties.Resources.Cancel;
+            btnCancelar.Location = new Point(477, 308);
+            btnCancelar.Name = "btnCancelar";
+            btnCancelar.Size = new Size(141, 63);
+            btnCancelar.TabIndex = 12;
+            btnCancelar.Text = "&Cancelar";
+            btnCancelar.TextImageRelation = TextImageRelation.ImageAboveText;
+            btnCancelar.UseVisualStyleBackColor = true;
             // 
             // button5
             // 
             button5.Image = Properties.Resources.CD;
-            button5.Location = new Point(604, 248);
+            button5.Location = new Point(602, 236);
             button5.Name = "button5";
-            button5.Size = new Size(131, 40);
+            button5.Size = new Size(137, 54);
             button5.TabIndex = 13;
             button5.Text = "Carregar Imagem";
-            button5.TextImageRelation = TextImageRelation.ImageBeforeText;
+            button5.TextAlign = ContentAlignment.BottomCenter;
+            button5.TextImageRelation = TextImageRelation.ImageAboveText;
             button5.UseVisualStyleBackColor = true;
             // 
-            // numericUpDown1
+            // nudValorUnit
             // 
-            numericUpDown1.DecimalPlaces = 2;
-            numericUpDown1.Location = new Point(111, 113);
-            numericUpDown1.Name = "numericUpDown1";
-            numericUpDown1.Size = new Size(108, 23);
-            numericUpDown1.TabIndex = 14;
+            nudValorUnit.DecimalPlaces = 2;
+            nudValorUnit.Location = new Point(111, 113);
+            nudValorUnit.Name = "nudValorUnit";
+            nudValorUnit.Size = new Size(108, 23);
+            nudValorUnit.TabIndex = 14;
             // 
-            // comboBox1
+            // cmbCategoria
             // 
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Items.AddRange(new object[] { "camisa", "calça", "tenis" });
-            comboBox1.Location = new Point(111, 152);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(426, 23);
-            comboBox1.TabIndex = 15;
+            cmbCategoria.FormattingEnabled = true;
+            cmbCategoria.Items.AddRange(new object[] { "camisa", "calça", "tenis" });
+            cmbCategoria.Location = new Point(111, 152);
+            cmbCategoria.Name = "cmbCategoria";
+            cmbCategoria.Size = new Size(426, 23);
+            cmbCategoria.TabIndex = 15;
             // 
             // nudClasseDesconto
             // 
@@ -262,22 +266,31 @@
             listBox1.Size = new Size(223, 319);
             listBox1.TabIndex = 21;
             // 
+            // dgvProdutos
+            // 
+            dgvProdutos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvProdutos.Location = new Point(12, 377);
+            dgvProdutos.Name = "dgvProdutos";
+            dgvProdutos.Size = new Size(1011, 274);
+            dgvProdutos.TabIndex = 22;
+            // 
             // FrmProduto
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1049, 663);
+            Controls.Add(dgvProdutos);
             Controls.Add(listBox1);
             Controls.Add(chkDescontinuado);
             Controls.Add(panel1);
             Controls.Add(nudEstoqueMinimo);
             Controls.Add(label7);
             Controls.Add(nudClasseDesconto);
-            Controls.Add(comboBox1);
-            Controls.Add(numericUpDown1);
+            Controls.Add(cmbCategoria);
+            Controls.Add(nudValorUnit);
             Controls.Add(button5);
-            Controls.Add(button4);
-            Controls.Add(button3);
+            Controls.Add(btnCancelar);
+            Controls.Add(btnEditar);
             Controls.Add(button2);
             Controls.Add(button1);
             Controls.Add(label6);
@@ -292,9 +305,11 @@
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "FrmProduto";
             Text = "FrmProduto";
-            ((System.ComponentModel.ISupportInitialize)numericUpDown1).EndInit();
+            Load += FrmProduto_Load;
+            ((System.ComponentModel.ISupportInitialize)nudValorUnit).EndInit();
             ((System.ComponentModel.ISupportInitialize)nudClasseDesconto).EndInit();
             ((System.ComponentModel.ISupportInitialize)nudEstoqueMinimo).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dgvProdutos).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -312,16 +327,17 @@
         private Label label6;
         private Button button1;
         private Button button2;
-        private Button button3;
-        private Button button4;
+        private Button btnEditar;
+        private Button btnCancelar;
         private Button button5;
-        private NumericUpDown numericUpDown1;
-        private ComboBox comboBox1;
+        private NumericUpDown nudValorUnit;
+        private ComboBox cmbCategoria;
         private NumericUpDown nudClasseDesconto;
         private Label label7;
         private NumericUpDown nudEstoqueMinimo;
         private Panel panel1;
         private CheckBox chkDescontinuado;
         private ListBox listBox1;
+        private DataGridView dgvProdutos;
     }
 }
