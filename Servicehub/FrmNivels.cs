@@ -27,7 +27,7 @@ namespace Servicehub
         {
             Nivel nivel = new(txtNome.Text, txtSigla.Text);
             nivel.Inserir();
-            if (Categoria.ObterPorId>0)
+            if (nivel.Id > 0)
             {
                 MessageBox.Show($"Nivel {nivel.Id} inserida com sucesso!");
                 CarregaGrid();
@@ -44,6 +44,64 @@ namespace Servicehub
                 dgvNiveis.Rows[dgvNiveis.Rows.Count - 1].Cells[0].Value = nivel.Id;
                 dgvNiveis.Rows[dgvNiveis.Rows.Count - 1].Cells[1].Value = nivel.Nome;
                 dgvNiveis.Rows[dgvNiveis.Rows.Count - 1].Cells[2].Value = nivel.Sigla;
+            }
+        }
+
+        private void dgvNiveis_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void dgvNiveis_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            txtId.Text = dgvNiveis.Rows[e.RowIndex].Cells[0].Value.ToString();
+            txtNome.Text = dgvNiveis.Rows[e.RowIndex].Cells[1].Value.ToString();
+            txtSigla.Text = dgvNiveis.Rows[e.RowIndex].Cells[2].Value.ToString();
+        }
+
+        private void btnEditar_Click(object sender, EventArgs e)
+        {
+            Nivel cat = new(int.Parse(txtId.Text), txtNome.Text, txtSigla.Text);
+            if (cat.Atualizar())
+            {
+                txtId.Clear();
+                txtNome.Clear();
+                txtSigla.Clear();
+                CarregaGrid();
+                MessageBox.Show($"Nivel {cat.Id} alterado com sucesso! \n Lista Atualizada");
+            }
+        }
+
+        private void btnExcluir_Click(object sender, EventArgs e)
+        {
+            if (txtId.Text != string.Empty)
+            {
+                var resposta = MessageBox.Show($"Deseja excluir o nivel {txtId.Text}-{txtNome.Text}",
+                    "Exclusão de Categoria", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
+                if (resposta == DialogResult.Yes)
+                {
+                    Nivel cat = new(int.Parse(txtId.Text));
+                    cat.Excluir();
+                    CarregaGrid();
+                }
+            }
+        }
+
+        private void dgvNiveis_SelectionChaged(object sender, EventArgs e)
+        {
+            if (dgvNiveis.CurrentRow != null)
+            {
+                txtId.Text = dgvNiveis.CurrentRow.Cells[0].Value?.ToString() ?? "";
+                txtNome.Text = dgvNiveis.CurrentRow.Cells[1].Value?.ToString() ?? "";
+                txtSigla.Text = dgvNiveis.CurrentRow.Cells[2].Value?.ToString() ?? "";
+            }
+        }
+
+        private void txtNivel_TextChanged(object sender, EventArgs e)
+        {
+            if (txtBuscar.Text.Length > 1) 
+            {
+                CarregaGrid(txtBuscar.Text);
             }
         }
     }

@@ -9,7 +9,7 @@ using System.Security.Cryptography.X509Certificates;
 
 namespace ServiceHubClass
 {
-    internal class Nivel
+    public class Nivel
     {
         public int Id { get; set; }
         public string? Nome { get; set; }
@@ -80,7 +80,7 @@ namespace ServiceHubClass
                 }
                 else 
                 {
-                    cmd.CommandText = "Select * from nivel order by nome";
+                    cmd.CommandText = "Select * from niveis order by nome";
                 }
                     cmd.CommandType = CommandType.Text;
 
@@ -112,6 +112,17 @@ namespace ServiceHubClass
             if (cmd.ExecuteNonQuery() > 0) atualizado = true;
             cmd.Connection.Close();
             return atualizado;
+        }
+
+        public void Excluir()
+        {
+            var cmd = Banco.Abrir();
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.CommandText = "sp_nivel_delete";
+            cmd.Parameters.AddWithValue("spid", Id);
+            cmd.ExecuteNonQuery();
+            cmd.Connection.Close();
+
         }
     }
 }
