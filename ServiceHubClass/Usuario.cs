@@ -15,33 +15,37 @@ namespace ServiceHubClass
         public string Nome { get; set; }
         public string Email { get; set; }
         public string Senha { get; set; }
+        public int Nivel { get; set; }
         public bool Ativo { get; set; }
 
         // Métodos Construtores
 
         public Usuario() { }
 
-        public Usuario(string nome, string email, string senha) 
+        public Usuario(string nome, string email, string senha, int nivel) 
         {
             Nome = nome;
             Email = email;
             Senha = senha;
+            Nivel = nivel;
         }
 
-        public Usuario(int id, string nome, string email, string senha)
+        public Usuario(int id, string nome, string email, string senha, int nivel)
         {
             Id = id;
             Nome = nome;
             Email = email;
             Senha = senha;
+            Nivel = nivel;
         }
 
-        public Usuario(int id, string nome, string email, string senha, bool ativo)
+        public Usuario(int id, string nome, string email, string senha, int nivel, bool ativo)
         {
             Id = id;
             Nome = nome;
             Email = email;
             Senha = senha;
+            Nivel = nivel;
             Ativo = ativo;
         }
 
@@ -54,6 +58,71 @@ namespace ServiceHubClass
             cmd.CommandText = "sp_usuario_insert";
             cmd.Parameters.AddWithValue("spnome",Nome);
             cmd.Parameters.AddWithValue("spemail",Email);
+            cmd.Parameters.AddWithValue("spsenha",Senha);
+            cmd.Parameters.AddWithValue("spativo",Ativo);
+            Id = Convert.ToInt32(cmd.ExecuteScalar());
+            cmd.Connection.Close();
+        }
+
+        public bool Atualizar() 
+        {
+            bool atualizar = false;
+            var cmd = Banco.Abrir();
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.CommandText = "sp_usuario_altera";
+            cmd.Parameters.AddWithValue("spid",Id);
+            cmd.Parameters.AddWithValue("spnome",Nome);
+            cmd.Parameters.AddWithValue("spemail",Email);
+            cmd.Parameters.AddWithValue("spsenha",Senha);
+            if (cmd.ExecuteNonQuery() > 0)
+                atualizar = true;
+            cmd.Connection.Close();
+            return atualizar;
+        }
+
+        public static Usuario ObterPorId(int id) 
+        {
+            Usuario usuario = new();
+            var cmd = Banco.Abrir();
+            cmd.CommandType = CommandType.Text;
+            cmd.CommandText = $"select * from usuarios where id = {id}";
+            var dr = cmd.ExecuteReader();
+            if (dr.Read())
+            {
+                usuario = new
+                    (dr.GetInt32(0),
+                    dr.GetString(1),
+                    dr.GetString(2),
+                    dr.GetString(3),
+                    dr.GetInt32(4),
+                    dr.GetBoolean(5));
+            }
+            dr.Close();
+            cmd.Connection.Close();
+            return usuario;
+        }
+
+        public static List<Usuario> ObterLista() 
+        {
+            List<Usuario> usuario = new();
+            var cmd = Banco.Abrir();
+            cmd.CommandType = CommandType.Text;
+            cmd.CommandText = $"select * from usuarios order by nome";
+            var dr = cmd.ExecuteReader();
+            while (dr.Read()) 
+            {
+                usuario.Add(new(
+                    dr.GetInt32(0),
+                    dr.GetString(1),
+                    dr.GetString(2),
+                    dr.GetString(3),
+                    dr.GetInt32(4),
+                    dr.GetBoolean(5))
+                    );
+            }
+            dr.Close();
+            cmd.Connection.Close();
+            return usuario;
         }
     }
 }
