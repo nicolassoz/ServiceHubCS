@@ -62,7 +62,7 @@
             label1.Location = new Point(35, 29);
             label1.Name = "label1";
             label1.Size = new Size(17, 15);
-            label1.TabIndex = 0;
+            label1.TabIndex = 11;
             label1.Text = "Id";
             // 
             // label2
@@ -71,7 +71,7 @@
             label2.Location = new Point(149, 29);
             label2.Name = "label2";
             label2.Size = new Size(40, 15);
-            label2.TabIndex = 1;
+            label2.TabIndex = 12;
             label2.Text = "Nome";
             // 
             // label3
@@ -80,7 +80,7 @@
             label3.Location = new Point(16, 77);
             label3.Name = "label3";
             label3.Size = new Size(36, 15);
-            label3.TabIndex = 2;
+            label3.TabIndex = 13;
             label3.Text = "Email";
             // 
             // label4
@@ -89,36 +89,37 @@
             label4.Location = new Point(586, 72);
             label4.Name = "label4";
             label4.Size = new Size(47, 15);
-            label4.TabIndex = 3;
+            label4.TabIndex = 15;
             label4.Text = "Nivel Id";
             // 
             // txtId
             // 
             txtId.Location = new Point(58, 26);
             txtId.Name = "txtId";
+            txtId.ReadOnly = true;
             txtId.Size = new Size(68, 23);
-            txtId.TabIndex = 5;
+            txtId.TabIndex = 17;
             // 
             // txtNome
             // 
             txtNome.Location = new Point(195, 26);
             txtNome.Name = "txtNome";
             txtNome.Size = new Size(519, 23);
-            txtNome.TabIndex = 6;
+            txtNome.TabIndex = 0;
             // 
             // txtEmail
             // 
             txtEmail.Location = new Point(58, 69);
             txtEmail.Name = "txtEmail";
             txtEmail.Size = new Size(511, 23);
-            txtEmail.TabIndex = 7;
+            txtEmail.TabIndex = 1;
             // 
             // txtNivelId
             // 
             txtNivelId.Location = new Point(639, 69);
             txtNivelId.Name = "txtNivelId";
             txtNivelId.Size = new Size(51, 23);
-            txtNivelId.TabIndex = 8;
+            txtNivelId.TabIndex = 2;
             // 
             // dgvUsuario
             // 
@@ -132,6 +133,8 @@
             dgvUsuario.RowHeadersVisible = false;
             dgvUsuario.Size = new Size(853, 271);
             dgvUsuario.TabIndex = 10;
+            dgvUsuario.CellClick += dgvUsuario_CellClick;
+            dgvUsuario.SelectionChanged += dgvUsuario_SelectionChanged;
             // 
             // Column1
             // 
@@ -193,7 +196,7 @@
             btnCancelar.Location = new Point(610, 166);
             btnCancelar.Name = "btnCancelar";
             btnCancelar.Size = new Size(101, 62);
-            btnCancelar.TabIndex = 18;
+            btnCancelar.TabIndex = 8;
             btnCancelar.Text = "&Cancelar";
             btnCancelar.TextImageRelation = TextImageRelation.ImageAboveText;
             btnCancelar.UseVisualStyleBackColor = true;
@@ -210,10 +213,11 @@
             btnExcluir.Location = new Point(491, 166);
             btnExcluir.Name = "btnExcluir";
             btnExcluir.Size = new Size(101, 62);
-            btnExcluir.TabIndex = 17;
+            btnExcluir.TabIndex = 7;
             btnExcluir.Text = "E&xcluir";
             btnExcluir.TextImageRelation = TextImageRelation.ImageAboveText;
             btnExcluir.UseVisualStyleBackColor = true;
+            btnExcluir.Click += btnExcluir_Click;
             // 
             // btnPesquisar
             // 
@@ -227,7 +231,7 @@
             btnPesquisar.Location = new Point(231, 166);
             btnPesquisar.Name = "btnPesquisar";
             btnPesquisar.Size = new Size(101, 62);
-            btnPesquisar.TabIndex = 15;
+            btnPesquisar.TabIndex = 5;
             btnPesquisar.Text = "&Pesquisar";
             btnPesquisar.TextImageRelation = TextImageRelation.ImageAboveText;
             btnPesquisar.UseVisualStyleBackColor = true;
@@ -244,10 +248,11 @@
             btnEditar.Location = new Point(361, 166);
             btnEditar.Name = "btnEditar";
             btnEditar.Size = new Size(101, 62);
-            btnEditar.TabIndex = 16;
+            btnEditar.TabIndex = 6;
             btnEditar.Text = "&Editar";
             btnEditar.TextImageRelation = TextImageRelation.ImageAboveText;
             btnEditar.UseVisualStyleBackColor = true;
+            btnEditar.Click += btnEditar_Click;
             // 
             // btnAdicionar
             // 
@@ -261,7 +266,7 @@
             btnAdicionar.Location = new Point(101, 166);
             btnAdicionar.Name = "btnAdicionar";
             btnAdicionar.Size = new Size(101, 62);
-            btnAdicionar.TabIndex = 14;
+            btnAdicionar.TabIndex = 4;
             btnAdicionar.Text = "&Adicionar";
             btnAdicionar.TextImageRelation = TextImageRelation.ImageAboveText;
             btnAdicionar.UseVisualStyleBackColor = true;
@@ -273,7 +278,8 @@
             txtBuscar.Name = "txtBuscar";
             txtBuscar.PlaceholderText = "Busca Usuario";
             txtBuscar.Size = new Size(853, 23);
-            txtBuscar.TabIndex = 19;
+            txtBuscar.TabIndex = 9;
+            txtBuscar.TextChanged += txtBuscar_TextChanged;
             // 
             // chbAtivo
             // 
@@ -281,7 +287,7 @@
             chbAtivo.Location = new Point(731, 71);
             chbAtivo.Name = "chbAtivo";
             chbAtivo.Size = new Size(54, 19);
-            chbAtivo.TabIndex = 20;
+            chbAtivo.TabIndex = 16;
             chbAtivo.Text = "Ativo";
             chbAtivo.UseVisualStyleBackColor = true;
             // 
@@ -291,7 +297,7 @@
             label5.Location = new Point(16, 112);
             label5.Name = "label5";
             label5.Size = new Size(38, 15);
-            label5.TabIndex = 21;
+            label5.TabIndex = 14;
             label5.Text = "senha";
             // 
             // txtSenha
@@ -299,7 +305,7 @@
             txtSenha.Location = new Point(60, 109);
             txtSenha.Name = "txtSenha";
             txtSenha.Size = new Size(445, 23);
-            txtSenha.TabIndex = 22;
+            txtSenha.TabIndex = 3;
             // 
             // FrmUsuario
             // 
@@ -339,7 +345,6 @@
         private Label label2;
         private Label label3;
         private Label label4;
-        private TextBox txtId;
         private TextBox txtNome;
         private TextBox txtEmail;
         private TextBox txtNivelId;
@@ -359,5 +364,6 @@
         private DataGridViewTextBoxColumn Column5;
         private Label label5;
         private TextBox txtSenha;
+        protected TextBox txtId;
     }
 }
