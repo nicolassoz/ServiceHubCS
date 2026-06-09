@@ -16,5 +16,10 @@ namespace Servicehub
         {
             InitializeComponent();
         }
+
+        private void FrmCaixa_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

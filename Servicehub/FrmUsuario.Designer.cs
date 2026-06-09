@@ -38,6 +38,12 @@
             txtEmail = new TextBox();
             txtNivelId = new TextBox();
             dgvUsuario = new DataGridView();
+            Column1 = new DataGridViewTextBoxColumn();
+            Column2 = new DataGridViewTextBoxColumn();
+            Column3 = new DataGridViewTextBoxColumn();
+            Column6 = new DataGridViewTextBoxColumn();
+            Column4 = new DataGridViewTextBoxColumn();
+            Column5 = new DataGridViewCheckBoxColumn();
             btnCancelar = new Button();
             btnExcluir = new Button();
             btnPesquisar = new Button();
@@ -47,12 +53,6 @@
             label5 = new Label();
             txtSenha = new TextBox();
             label6 = new Label();
-            Column1 = new DataGridViewTextBoxColumn();
-            Column2 = new DataGridViewTextBoxColumn();
-            Column3 = new DataGridViewTextBoxColumn();
-            Column6 = new DataGridViewTextBoxColumn();
-            Column4 = new DataGridViewTextBoxColumn();
-            Column5 = new DataGridViewCheckBoxColumn();
             ((System.ComponentModel.ISupportInitialize)dgvUsuario).BeginInit();
             SuspendLayout();
             // 
@@ -135,6 +135,56 @@
             dgvUsuario.TabIndex = 10;
             dgvUsuario.CellClick += dgvUsuario_CellClick;
             dgvUsuario.SelectionChanged += dgvUsuario_SelectionChanged;
+            // 
+            // Column1
+            // 
+            Column1.Frozen = true;
+            Column1.HeaderText = "Id";
+            Column1.Name = "Column1";
+            Column1.ReadOnly = true;
+            Column1.Width = 80;
+            // 
+            // Column2
+            // 
+            Column2.Frozen = true;
+            Column2.HeaderText = "Nome";
+            Column2.Name = "Column2";
+            Column2.ReadOnly = true;
+            Column2.Width = 210;
+            // 
+            // Column3
+            // 
+            Column3.Frozen = true;
+            Column3.HeaderText = "Email";
+            Column3.Name = "Column3";
+            Column3.ReadOnly = true;
+            Column3.Width = 210;
+            // 
+            // Column6
+            // 
+            Column6.Frozen = true;
+            Column6.HeaderText = "senha";
+            Column6.Name = "Column6";
+            Column6.ReadOnly = true;
+            Column6.Width = 200;
+            // 
+            // Column4
+            // 
+            Column4.Frozen = true;
+            Column4.HeaderText = "Nivel";
+            Column4.Name = "Column4";
+            Column4.ReadOnly = true;
+            Column4.Width = 80;
+            // 
+            // Column5
+            // 
+            Column5.Frozen = true;
+            Column5.HeaderText = "Ativo";
+            Column5.Name = "Column5";
+            Column5.ReadOnly = true;
+            Column5.Resizable = DataGridViewTriState.True;
+            Column5.SortMode = DataGridViewColumnSortMode.Automatic;
+            Column5.Width = 55;
             // 
             // btnCancelar
             // 
@@ -248,6 +298,7 @@
             txtSenha.Name = "txtSenha";
             txtSenha.Size = new Size(445, 23);
             txtSenha.TabIndex = 3;
+            txtSenha.UseSystemPasswordChar = true;
             // 
             // label6
             // 
@@ -259,56 +310,6 @@
             label6.TabIndex = 18;
             label6.Text = "Usuario";
             label6.Click += label6_Click;
-            // 
-            // Column1
-            // 
-            Column1.Frozen = true;
-            Column1.HeaderText = "Id";
-            Column1.Name = "Column1";
-            Column1.ReadOnly = true;
-            Column1.Width = 80;
-            // 
-            // Column2
-            // 
-            Column2.Frozen = true;
-            Column2.HeaderText = "Nome";
-            Column2.Name = "Column2";
-            Column2.ReadOnly = true;
-            Column2.Width = 210;
-            // 
-            // Column3
-            // 
-            Column3.Frozen = true;
-            Column3.HeaderText = "Email";
-            Column3.Name = "Column3";
-            Column3.ReadOnly = true;
-            Column3.Width = 210;
-            // 
-            // Column6
-            // 
-            Column6.Frozen = true;
-            Column6.HeaderText = "senha";
-            Column6.Name = "Column6";
-            Column6.ReadOnly = true;
-            Column6.Width = 200;
-            // 
-            // Column4
-            // 
-            Column4.Frozen = true;
-            Column4.HeaderText = "Nivel";
-            Column4.Name = "Column4";
-            Column4.ReadOnly = true;
-            Column4.Width = 80;
-            // 
-            // Column5
-            // 
-            Column5.Frozen = true;
-            Column5.HeaderText = "Ativo";
-            Column5.Name = "Column5";
-            Column5.ReadOnly = true;
-            Column5.Resizable = DataGridViewTriState.True;
-            Column5.SortMode = DataGridViewColumnSortMode.Automatic;
-            Column5.Width = 55;
             // 
             // FrmUsuario
             // 

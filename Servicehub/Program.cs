@@ -19,7 +19,8 @@ namespace Servicehub
             //Application.Run(new frmCategorias());
             //Application.Run(new FrmNivels());
             //Application.Run(new FrmUsuario());
-            Application.Run(new FrmPedido());
+            //Application.Run(new FrmPedido());
+            Application.Run(new FrmCaixa());
 
         }
     }
