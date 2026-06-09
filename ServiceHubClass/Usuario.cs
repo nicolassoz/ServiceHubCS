@@ -117,7 +117,7 @@ namespace ServiceHubClass
             if (cmd.Connection.State == ConnectionState.Open) 
             {
                 if (busca != "")
-                    cmd.CommandText = $"select * from usuario where nome like '%{busca}%' or id like '%{busca}%' order by nome";
+                    cmd.CommandText = $"select * from usuarios where nome like '%{busca}%' or id like '%{busca}%' order by nome";
                 else
                     cmd.CommandText = $"select * from usuarios order by nome";
 

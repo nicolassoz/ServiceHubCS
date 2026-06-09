@@ -38,28 +38,28 @@
             txtEmail = new TextBox();
             txtNivelId = new TextBox();
             dgvUsuario = new DataGridView();
-            Column1 = new DataGridViewTextBoxColumn();
-            Column2 = new DataGridViewTextBoxColumn();
-            Column3 = new DataGridViewTextBoxColumn();
-            Column6 = new DataGridViewTextBoxColumn();
-            Column4 = new DataGridViewTextBoxColumn();
-            Column5 = new DataGridViewTextBoxColumn();
             btnCancelar = new Button();
             btnExcluir = new Button();
             btnPesquisar = new Button();
             btnEditar = new Button();
             btnAdicionar = new Button();
             txtBuscar = new TextBox();
-            chbAtivo = new CheckBox();
             label5 = new Label();
             txtSenha = new TextBox();
+            label6 = new Label();
+            Column1 = new DataGridViewTextBoxColumn();
+            Column2 = new DataGridViewTextBoxColumn();
+            Column3 = new DataGridViewTextBoxColumn();
+            Column6 = new DataGridViewTextBoxColumn();
+            Column4 = new DataGridViewTextBoxColumn();
+            Column5 = new DataGridViewCheckBoxColumn();
             ((System.ComponentModel.ISupportInitialize)dgvUsuario).BeginInit();
             SuspendLayout();
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(35, 29);
+            label1.Location = new Point(28, 80);
             label1.Name = "label1";
             label1.Size = new Size(17, 15);
             label1.TabIndex = 11;
@@ -68,7 +68,7 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(149, 29);
+            label2.Location = new Point(142, 80);
             label2.Name = "label2";
             label2.Size = new Size(40, 15);
             label2.TabIndex = 12;
@@ -77,7 +77,7 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(16, 77);
+            label3.Location = new Point(9, 123);
             label3.Name = "label3";
             label3.Size = new Size(36, 15);
             label3.TabIndex = 13;
@@ -86,7 +86,7 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(586, 72);
+            label4.Location = new Point(579, 123);
             label4.Name = "label4";
             label4.Size = new Size(47, 15);
             label4.TabIndex = 15;
@@ -94,7 +94,7 @@
             // 
             // txtId
             // 
-            txtId.Location = new Point(58, 26);
+            txtId.Location = new Point(51, 77);
             txtId.Name = "txtId";
             txtId.ReadOnly = true;
             txtId.Size = new Size(68, 23);
@@ -102,21 +102,21 @@
             // 
             // txtNome
             // 
-            txtNome.Location = new Point(195, 26);
+            txtNome.Location = new Point(188, 77);
             txtNome.Name = "txtNome";
             txtNome.Size = new Size(519, 23);
             txtNome.TabIndex = 0;
             // 
             // txtEmail
             // 
-            txtEmail.Location = new Point(58, 69);
+            txtEmail.Location = new Point(51, 120);
             txtEmail.Name = "txtEmail";
             txtEmail.Size = new Size(511, 23);
             txtEmail.TabIndex = 1;
             // 
             // txtNivelId
             // 
-            txtNivelId.Location = new Point(639, 69);
+            txtNivelId.Location = new Point(632, 120);
             txtNivelId.Name = "txtNivelId";
             txtNivelId.Size = new Size(51, 23);
             txtNivelId.TabIndex = 2;
@@ -127,7 +127,7 @@
             dgvUsuario.AllowUserToDeleteRows = false;
             dgvUsuario.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvUsuario.Columns.AddRange(new DataGridViewColumn[] { Column1, Column2, Column3, Column6, Column4, Column5 });
-            dgvUsuario.Location = new Point(16, 274);
+            dgvUsuario.Location = new Point(12, 309);
             dgvUsuario.Name = "dgvUsuario";
             dgvUsuario.ReadOnly = true;
             dgvUsuario.RowHeadersVisible = false;
@@ -135,6 +135,130 @@
             dgvUsuario.TabIndex = 10;
             dgvUsuario.CellClick += dgvUsuario_CellClick;
             dgvUsuario.SelectionChanged += dgvUsuario_SelectionChanged;
+            // 
+            // btnCancelar
+            // 
+            btnCancelar.FlatAppearance.BorderSize = 0;
+            btnCancelar.FlatAppearance.MouseDownBackColor = Color.FromArgb(255, 192, 128);
+            btnCancelar.FlatAppearance.MouseOverBackColor = Color.FromArgb(255, 128, 0);
+            btnCancelar.FlatStyle = FlatStyle.Flat;
+            btnCancelar.Font = new Font("Bahnschrift", 10F);
+            btnCancelar.ForeColor = SystemColors.ControlText;
+            btnCancelar.Image = Properties.Resources.Cancel;
+            btnCancelar.Location = new Point(606, 201);
+            btnCancelar.Name = "btnCancelar";
+            btnCancelar.Size = new Size(101, 62);
+            btnCancelar.TabIndex = 8;
+            btnCancelar.Text = "&Cancelar";
+            btnCancelar.TextImageRelation = TextImageRelation.ImageAboveText;
+            btnCancelar.UseVisualStyleBackColor = true;
+            // 
+            // btnExcluir
+            // 
+            btnExcluir.FlatAppearance.BorderSize = 0;
+            btnExcluir.FlatAppearance.MouseDownBackColor = Color.FromArgb(255, 128, 128);
+            btnExcluir.FlatAppearance.MouseOverBackColor = Color.Red;
+            btnExcluir.FlatStyle = FlatStyle.Flat;
+            btnExcluir.Font = new Font("Bahnschrift", 10F);
+            btnExcluir.ForeColor = SystemColors.ControlText;
+            btnExcluir.Image = Properties.Resources.Delete;
+            btnExcluir.Location = new Point(487, 201);
+            btnExcluir.Name = "btnExcluir";
+            btnExcluir.Size = new Size(101, 62);
+            btnExcluir.TabIndex = 7;
+            btnExcluir.Text = "E&xcluir";
+            btnExcluir.TextImageRelation = TextImageRelation.ImageAboveText;
+            btnExcluir.UseVisualStyleBackColor = true;
+            btnExcluir.Click += btnExcluir_Click;
+            // 
+            // btnPesquisar
+            // 
+            btnPesquisar.FlatAppearance.BorderSize = 0;
+            btnPesquisar.FlatAppearance.MouseDownBackColor = Color.FromArgb(128, 255, 255);
+            btnPesquisar.FlatAppearance.MouseOverBackColor = Color.Cyan;
+            btnPesquisar.FlatStyle = FlatStyle.Flat;
+            btnPesquisar.Font = new Font("Bahnschrift", 10F);
+            btnPesquisar.ForeColor = SystemColors.ControlText;
+            btnPesquisar.Image = Properties.Resources.Search;
+            btnPesquisar.Location = new Point(227, 201);
+            btnPesquisar.Name = "btnPesquisar";
+            btnPesquisar.Size = new Size(101, 62);
+            btnPesquisar.TabIndex = 5;
+            btnPesquisar.Text = "&Pesquisar";
+            btnPesquisar.TextImageRelation = TextImageRelation.ImageAboveText;
+            btnPesquisar.UseVisualStyleBackColor = true;
+            // 
+            // btnEditar
+            // 
+            btnEditar.FlatAppearance.BorderSize = 0;
+            btnEditar.FlatAppearance.MouseDownBackColor = Color.FromArgb(255, 128, 255);
+            btnEditar.FlatAppearance.MouseOverBackColor = Color.Fuchsia;
+            btnEditar.FlatStyle = FlatStyle.Flat;
+            btnEditar.Font = new Font("Bahnschrift", 10F);
+            btnEditar.ForeColor = SystemColors.ControlText;
+            btnEditar.Image = Properties.Resources.Edit_Alt;
+            btnEditar.Location = new Point(357, 201);
+            btnEditar.Name = "btnEditar";
+            btnEditar.Size = new Size(101, 62);
+            btnEditar.TabIndex = 6;
+            btnEditar.Text = "&Editar";
+            btnEditar.TextImageRelation = TextImageRelation.ImageAboveText;
+            btnEditar.UseVisualStyleBackColor = true;
+            btnEditar.Click += btnEditar_Click;
+            // 
+            // btnAdicionar
+            // 
+            btnAdicionar.FlatAppearance.BorderSize = 0;
+            btnAdicionar.FlatAppearance.MouseDownBackColor = Color.FromArgb(128, 255, 128);
+            btnAdicionar.FlatAppearance.MouseOverBackColor = Color.Lime;
+            btnAdicionar.FlatStyle = FlatStyle.Flat;
+            btnAdicionar.Font = new Font("Bahnschrift", 10F);
+            btnAdicionar.ForeColor = SystemColors.ControlText;
+            btnAdicionar.Image = Properties.Resources.Add;
+            btnAdicionar.Location = new Point(97, 201);
+            btnAdicionar.Name = "btnAdicionar";
+            btnAdicionar.Size = new Size(101, 62);
+            btnAdicionar.TabIndex = 4;
+            btnAdicionar.Text = "&Adicionar";
+            btnAdicionar.TextImageRelation = TextImageRelation.ImageAboveText;
+            btnAdicionar.UseVisualStyleBackColor = true;
+            btnAdicionar.Click += btnAdicionar_Click;
+            // 
+            // txtBuscar
+            // 
+            txtBuscar.Location = new Point(12, 269);
+            txtBuscar.Name = "txtBuscar";
+            txtBuscar.PlaceholderText = "Busca Usuario";
+            txtBuscar.Size = new Size(853, 23);
+            txtBuscar.TabIndex = 9;
+            txtBuscar.TextChanged += txtBuscar_TextChanged;
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Location = new Point(7, 163);
+            label5.Name = "label5";
+            label5.Size = new Size(38, 15);
+            label5.TabIndex = 14;
+            label5.Text = "senha";
+            // 
+            // txtSenha
+            // 
+            txtSenha.Location = new Point(53, 160);
+            txtSenha.Name = "txtSenha";
+            txtSenha.Size = new Size(445, 23);
+            txtSenha.TabIndex = 3;
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label6.Location = new Point(381, 23);
+            label6.Name = "label6";
+            label6.Size = new Size(77, 25);
+            label6.TabIndex = 18;
+            label6.Text = "Usuario";
+            label6.Click += label6_Click;
             // 
             // Column1
             // 
@@ -182,139 +306,18 @@
             Column5.HeaderText = "Ativo";
             Column5.Name = "Column5";
             Column5.ReadOnly = true;
+            Column5.Resizable = DataGridViewTriState.True;
+            Column5.SortMode = DataGridViewColumnSortMode.Automatic;
             Column5.Width = 55;
-            // 
-            // btnCancelar
-            // 
-            btnCancelar.FlatAppearance.BorderSize = 0;
-            btnCancelar.FlatAppearance.MouseDownBackColor = Color.FromArgb(255, 192, 128);
-            btnCancelar.FlatAppearance.MouseOverBackColor = Color.FromArgb(255, 128, 0);
-            btnCancelar.FlatStyle = FlatStyle.Flat;
-            btnCancelar.Font = new Font("Bahnschrift", 10F);
-            btnCancelar.ForeColor = SystemColors.ControlText;
-            btnCancelar.Image = Properties.Resources.Cancel;
-            btnCancelar.Location = new Point(610, 166);
-            btnCancelar.Name = "btnCancelar";
-            btnCancelar.Size = new Size(101, 62);
-            btnCancelar.TabIndex = 8;
-            btnCancelar.Text = "&Cancelar";
-            btnCancelar.TextImageRelation = TextImageRelation.ImageAboveText;
-            btnCancelar.UseVisualStyleBackColor = true;
-            // 
-            // btnExcluir
-            // 
-            btnExcluir.FlatAppearance.BorderSize = 0;
-            btnExcluir.FlatAppearance.MouseDownBackColor = Color.FromArgb(255, 128, 128);
-            btnExcluir.FlatAppearance.MouseOverBackColor = Color.Red;
-            btnExcluir.FlatStyle = FlatStyle.Flat;
-            btnExcluir.Font = new Font("Bahnschrift", 10F);
-            btnExcluir.ForeColor = SystemColors.ControlText;
-            btnExcluir.Image = Properties.Resources.Delete;
-            btnExcluir.Location = new Point(491, 166);
-            btnExcluir.Name = "btnExcluir";
-            btnExcluir.Size = new Size(101, 62);
-            btnExcluir.TabIndex = 7;
-            btnExcluir.Text = "E&xcluir";
-            btnExcluir.TextImageRelation = TextImageRelation.ImageAboveText;
-            btnExcluir.UseVisualStyleBackColor = true;
-            btnExcluir.Click += btnExcluir_Click;
-            // 
-            // btnPesquisar
-            // 
-            btnPesquisar.FlatAppearance.BorderSize = 0;
-            btnPesquisar.FlatAppearance.MouseDownBackColor = Color.FromArgb(128, 255, 255);
-            btnPesquisar.FlatAppearance.MouseOverBackColor = Color.Cyan;
-            btnPesquisar.FlatStyle = FlatStyle.Flat;
-            btnPesquisar.Font = new Font("Bahnschrift", 10F);
-            btnPesquisar.ForeColor = SystemColors.ControlText;
-            btnPesquisar.Image = Properties.Resources.Search;
-            btnPesquisar.Location = new Point(231, 166);
-            btnPesquisar.Name = "btnPesquisar";
-            btnPesquisar.Size = new Size(101, 62);
-            btnPesquisar.TabIndex = 5;
-            btnPesquisar.Text = "&Pesquisar";
-            btnPesquisar.TextImageRelation = TextImageRelation.ImageAboveText;
-            btnPesquisar.UseVisualStyleBackColor = true;
-            // 
-            // btnEditar
-            // 
-            btnEditar.FlatAppearance.BorderSize = 0;
-            btnEditar.FlatAppearance.MouseDownBackColor = Color.FromArgb(255, 128, 255);
-            btnEditar.FlatAppearance.MouseOverBackColor = Color.Fuchsia;
-            btnEditar.FlatStyle = FlatStyle.Flat;
-            btnEditar.Font = new Font("Bahnschrift", 10F);
-            btnEditar.ForeColor = SystemColors.ControlText;
-            btnEditar.Image = Properties.Resources.Edit_Alt;
-            btnEditar.Location = new Point(361, 166);
-            btnEditar.Name = "btnEditar";
-            btnEditar.Size = new Size(101, 62);
-            btnEditar.TabIndex = 6;
-            btnEditar.Text = "&Editar";
-            btnEditar.TextImageRelation = TextImageRelation.ImageAboveText;
-            btnEditar.UseVisualStyleBackColor = true;
-            btnEditar.Click += btnEditar_Click;
-            // 
-            // btnAdicionar
-            // 
-            btnAdicionar.FlatAppearance.BorderSize = 0;
-            btnAdicionar.FlatAppearance.MouseDownBackColor = Color.FromArgb(128, 255, 128);
-            btnAdicionar.FlatAppearance.MouseOverBackColor = Color.Lime;
-            btnAdicionar.FlatStyle = FlatStyle.Flat;
-            btnAdicionar.Font = new Font("Bahnschrift", 10F);
-            btnAdicionar.ForeColor = SystemColors.ControlText;
-            btnAdicionar.Image = Properties.Resources.Add;
-            btnAdicionar.Location = new Point(101, 166);
-            btnAdicionar.Name = "btnAdicionar";
-            btnAdicionar.Size = new Size(101, 62);
-            btnAdicionar.TabIndex = 4;
-            btnAdicionar.Text = "&Adicionar";
-            btnAdicionar.TextImageRelation = TextImageRelation.ImageAboveText;
-            btnAdicionar.UseVisualStyleBackColor = true;
-            btnAdicionar.Click += btnAdicionar_Click;
-            // 
-            // txtBuscar
-            // 
-            txtBuscar.Location = new Point(16, 234);
-            txtBuscar.Name = "txtBuscar";
-            txtBuscar.PlaceholderText = "Busca Usuario";
-            txtBuscar.Size = new Size(853, 23);
-            txtBuscar.TabIndex = 9;
-            txtBuscar.TextChanged += txtBuscar_TextChanged;
-            // 
-            // chbAtivo
-            // 
-            chbAtivo.AutoSize = true;
-            chbAtivo.Location = new Point(731, 71);
-            chbAtivo.Name = "chbAtivo";
-            chbAtivo.Size = new Size(54, 19);
-            chbAtivo.TabIndex = 16;
-            chbAtivo.Text = "Ativo";
-            chbAtivo.UseVisualStyleBackColor = true;
-            // 
-            // label5
-            // 
-            label5.AutoSize = true;
-            label5.Location = new Point(16, 112);
-            label5.Name = "label5";
-            label5.Size = new Size(38, 15);
-            label5.TabIndex = 14;
-            label5.Text = "senha";
-            // 
-            // txtSenha
-            // 
-            txtSenha.Location = new Point(60, 109);
-            txtSenha.Name = "txtSenha";
-            txtSenha.Size = new Size(445, 23);
-            txtSenha.TabIndex = 3;
             // 
             // FrmUsuario
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(881, 557);
+            ClientSize = new Size(881, 592);
+            Controls.Add(label6);
             Controls.Add(txtSenha);
             Controls.Add(label5);
-            Controls.Add(chbAtivo);
             Controls.Add(txtBuscar);
             Controls.Add(btnCancelar);
             Controls.Add(btnExcluir);
@@ -355,15 +358,15 @@
         private Button btnEditar;
         private Button btnAdicionar;
         private TextBox txtBuscar;
-        private CheckBox chbAtivo;
+        private Label label5;
+        private TextBox txtSenha;
+        protected TextBox txtId;
+        private Label label6;
         private DataGridViewTextBoxColumn Column1;
         private DataGridViewTextBoxColumn Column2;
         private DataGridViewTextBoxColumn Column3;
         private DataGridViewTextBoxColumn Column6;
         private DataGridViewTextBoxColumn Column4;
-        private DataGridViewTextBoxColumn Column5;
-        private Label label5;
-        private TextBox txtSenha;
-        protected TextBox txtId;
+        private DataGridViewCheckBoxColumn Column5;
     }
 }

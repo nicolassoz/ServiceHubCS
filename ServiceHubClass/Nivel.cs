@@ -118,7 +118,6 @@ namespace ServiceHubClass
         {
             var cmd = Banco.Abrir();
             cmd.CommandType = CommandType.StoredProcedure;
-            cmd.CommandText = "sp_nivel_delete";
             cmd.Parameters.AddWithValue("spid", Id);
             cmd.ExecuteNonQuery();
             cmd.Connection.Close();

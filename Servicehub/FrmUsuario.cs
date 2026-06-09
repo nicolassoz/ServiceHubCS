@@ -26,7 +26,7 @@ namespace Servicehub
         private void CarregaGrid(string texto = "")
         {
             dgvUsuario.Rows.Clear();
-            List<Usuario> usuarios = Usuario.ObterLista();
+            List<Usuario> usuarios = Usuario.ObterLista(texto);
             foreach (var usuario in usuarios)
             {
                 dgvUsuario.Rows.Add();
@@ -54,7 +54,7 @@ namespace Servicehub
         {
             if (txtId.Text != string.Empty)
             {
-                var resposta = MessageBox.Show($"Deseja excluir o nivel {txtId.Text} - {txtNome.Text}", "Exclusão de categoria", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
+                var resposta = MessageBox.Show($"Deseja descontinuar o usuario {txtId.Text} - {txtNome.Text}", "descontinuação de usuario", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
                 if (resposta == DialogResult.Yes)
                 {
                     Nivel cat = new(int.Parse(txtId.Text));
@@ -91,13 +91,14 @@ namespace Servicehub
                 txtEmail.Clear();
                 txtSenha.Clear();
                 txtNivelId.Clear();
-                MessageBox.Show($"Categoria {cat.Id} alterada com sucesso! \n lista Atualizada");
+                MessageBox.Show($"usuario {cat.Id} alterado com sucesso! \n lista Atualizada");
+                CarregaGrid();
             }
         }
 
         private void dgvUsuario_SelectionChanged(object sender, EventArgs e)
         {
-            if(dgvUsuario.CurrentRow != null) 
+            if (dgvUsuario.CurrentRow != null)
             {
                 txtId.Text = dgvUsuario.CurrentRow.Cells[0].Value?.ToString() ?? "";
                 txtNome.Text = dgvUsuario.CurrentRow.Cells[1].Value?.ToString() ?? "";
@@ -105,6 +106,11 @@ namespace Servicehub
                 txtSenha.Text = dgvUsuario.CurrentRow.Cells[3].Value?.ToString() ?? "";
                 txtNivelId.Text = dgvUsuario.CurrentRow.Cells[4].Value?.ToString() ?? "";
             }
+        }
+
+        private void label6_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

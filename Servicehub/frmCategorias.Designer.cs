@@ -231,9 +231,10 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(285, 37);
+            label1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label1.Location = new Point(271, 27);
             label1.Name = "label1";
-            label1.Size = new Size(129, 15);
+            label1.Size = new Size(171, 21);
             label1.TabIndex = 14;
             label1.Text = "Cadastro de Categorias";
             // 
@@ -251,8 +252,8 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(757, 450);
-            Controls.Add(txtId);
             Controls.Add(label1);
+            Controls.Add(txtId);
             Controls.Add(btnCancelar);
             Controls.Add(btnExcluir);
             Controls.Add(btnPesquisar);
