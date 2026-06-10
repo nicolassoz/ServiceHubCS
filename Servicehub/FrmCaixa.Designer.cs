@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             label1 = new Label();
-            dataGridView1 = new DataGridView();
+            dgvCaixa = new DataGridView();
             Column1 = new DataGridViewTextBoxColumn();
             Column2 = new DataGridViewTextBoxColumn();
             Column3 = new DataGridViewTextBoxColumn();
@@ -51,7 +51,7 @@
             btnPesquisar = new Button();
             btnEditar = new Button();
             btnAdicionar = new Button();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dgvCaixa).BeginInit();
             SuspendLayout();
             // 
             // label1
@@ -64,18 +64,20 @@
             label1.TabIndex = 0;
             label1.Text = "Caixa";
             // 
-            // dataGridView1
+            // dgvCaixa
             // 
-            dataGridView1.AllowUserToAddRows = false;
-            dataGridView1.AllowUserToDeleteRows = false;
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { Column1, Column2, Column3, Column4, Column5 });
-            dataGridView1.Location = new Point(136, 220);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.ReadOnly = true;
-            dataGridView1.RowHeadersVisible = false;
-            dataGridView1.Size = new Size(522, 218);
-            dataGridView1.TabIndex = 1;
+            dgvCaixa.AllowUserToAddRows = false;
+            dgvCaixa.AllowUserToDeleteRows = false;
+            dgvCaixa.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvCaixa.Columns.AddRange(new DataGridViewColumn[] { Column1, Column2, Column3, Column4, Column5 });
+            dgvCaixa.Location = new Point(136, 220);
+            dgvCaixa.Name = "dgvCaixa";
+            dgvCaixa.ReadOnly = true;
+            dgvCaixa.RowHeadersVisible = false;
+            dgvCaixa.Size = new Size(522, 218);
+            dgvCaixa.TabIndex = 1;
+            dgvCaixa.CellClick += dgvCaixa_CellClick;
+            dgvCaixa.SelectionChanged += dgvCaixa_SelectionChanged;
             // 
             // Column1
             // 
@@ -198,11 +200,12 @@
             // 
             // txtBusca
             // 
-            txtBusca.Location = new Point(136, 191);
+            txtBusca.Location = new Point(136, 193);
             txtBusca.Name = "txtBusca";
             txtBusca.PlaceholderText = "Busca no caixa";
             txtBusca.Size = new Size(522, 23);
             txtBusca.TabIndex = 12;
+            txtBusca.TextChanged += txtBusca_TextChanged;
             // 
             // btnCancelar
             // 
@@ -271,6 +274,7 @@
             btnEditar.Text = "&Editar";
             btnEditar.TextImageRelation = TextImageRelation.ImageAboveText;
             btnEditar.UseVisualStyleBackColor = true;
+            btnEditar.Click += btnEditar_Click;
             // 
             // btnAdicionar
             // 
@@ -288,6 +292,7 @@
             btnAdicionar.Text = "&Adicionar";
             btnAdicionar.TextImageRelation = TextImageRelation.ImageAboveText;
             btnAdicionar.UseVisualStyleBackColor = true;
+            btnAdicionar.Click += btnAdicionar_Click;
             // 
             // FrmCaixa
             // 
@@ -310,12 +315,12 @@
             Controls.Add(label4);
             Controls.Add(label3);
             Controls.Add(label2);
-            Controls.Add(dataGridView1);
+            Controls.Add(dgvCaixa);
             Controls.Add(label1);
             Name = "FrmCaixa";
             Text = "FrmCaixa";
             Load += FrmCaixa_Load;
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dgvCaixa).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -323,7 +328,7 @@
         #endregion
 
         private Label label1;
-        private DataGridView dataGridView1;
+        private DataGridView dgvCaixa;
         private Label label2;
         private Label label3;
         private Label label4;
